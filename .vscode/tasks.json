@@ -1,0 +1,46 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "Build SmartInventory GUI",
+            "command": "cmd.exe",
+            "args": [
+                "/c",
+                "build_gui.bat"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Builds the native Windows GUI application (SmartInventoryGUI.exe)"
+        },
+        {
+            "type": "cppbuild",
+            "label": "Build CLI (main.exe)",
+            "command": "cl.exe",
+            "args": [
+                "/Zi",
+                "/EHsc",
+                "/nologo",
+                "/D_CRT_SECURE_NO_WARNINGS",
+                "/Fe${workspaceFolder}\\main.exe",
+                "${workspaceFolder}\\main.c"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ],
+            "group": "build",
+            "detail": "Builds the terminal console application (main.exe)"
+        }
+    ]
+}
